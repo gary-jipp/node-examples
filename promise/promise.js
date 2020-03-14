@@ -48,9 +48,9 @@ const main2 = function () {
 
 const main3 = function () {
 
-	axios.get('https://meowfacts.herokuapp.com/')
+	axios.get('https://uselessfacts.jsph.pl/random.txt?language=en')
 		.then(res => {
-			console.log(res.data.data[0]);
+			console.log(res.data);
 		})
 		.catch(function (error) {
 			console.log(error);
@@ -113,5 +113,5 @@ const main6 = async function () {
 };
 
 
-main2();
+main3();
 console.log("User Thread End");
