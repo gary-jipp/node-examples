@@ -10,7 +10,6 @@ const longRunningFunction = function (value) {
 	let promise = new Promise(function (resolve, reject) {
 		// Do something that takes time.
 		if (value > 0) {
-			console.log("start timeout: ", value);
 			// setTimeout(doStuff(resolve, "yay that worked:"+value), value);
 			setTimeout(() => resolve("yay that worked:" + value), value);
 		} else {
@@ -39,7 +38,6 @@ const main2 = function () {
 	promise2 = longRunningFunction(0).catch(e => e);
 	promise3 = longRunningFunction(200).catch(e => e);
 
-	console.log("calling multiple promises");
 	const status = Promise.all([promise1, promise2, promise3])
 		.then(result => console.log(result))
 		.catch(error => console.log(error))
@@ -70,8 +68,8 @@ const callAxios = function (url) {
 
 const main4 = function () {
 
-	const status = callAxios('https://meowfacts.herokuapp.com/')
-		// .then(res => console.log(res));
+	const status = callAxios('https://meowfacts.herokuapp.com/');
+	// .then(res => console.log(res));
 
 	console.log(status);
 
