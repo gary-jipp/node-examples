@@ -71,7 +71,7 @@ const callAxios = function (url) {
 const main4 = function () {
 
 	const status = callAxios('https://meowfacts.herokuapp.com/')
-		.then(res => console.log(res));
+		// .then(res => console.log(res));
 
 	console.log(status);
 
