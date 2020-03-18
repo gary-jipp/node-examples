@@ -27,20 +27,20 @@ const main1 = function () {
 	const status = longRunningFunction(220)
 		.then(result => console.log(result))
 		.catch(error => console.log(error))
-		.finally(() => console.log(this.promise1));
+		.finally(() => console.log("finished"));
 
 	console.log(status);
 };
 
 const main2 = function () {
-	console.log("calling multiple longRunningFunction's");
+	console.log("calling multiple Promises");
 	promise1 = longRunningFunction(1330).catch(e => e);
-	promise2 = longRunningFunction(0).catch(e => e);
+	promise2 = longRunningFunction(-10).catch(e => e);
 	promise3 = longRunningFunction(200).catch(e => e);
 
 	const status = Promise.all([promise1, promise2, promise3])
 		.then(result => console.log(result))
-		.catch(error => console.log(error))
+		.catch(error => console.log("Error: " + error)) // Never happens
 		.finally(() => console.log(this.promise1));
 
 	console.log(status);
@@ -103,8 +103,8 @@ const main5 = function () {
 const main6 = async function () {
 
 	try {
-		const status = axios('https://meowfacts.herokuapp.com/');
-		console.log((await status).data.data[0]);
+		const res = axios('https://meowfacts.herokuapp.com/');
+		console.log((await res).data.data[0]);
 	}
 	catch (e) {
 		console.log(e.response);
@@ -113,5 +113,5 @@ const main6 = async function () {
 };
 
 
-main3();
+main2();
 console.log("User Thread End");
