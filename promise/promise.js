@@ -48,7 +48,7 @@ const main2 = function () {
 
 const main3 = function () {
 
-	axios.get('https://uselessfacts.jsph.pl/random.txt?language=en')
+	axios.get('https://api.kanye.rest')
 		.then(res => {
 			console.log(res.data);
 		})
@@ -68,10 +68,11 @@ const callAxios = function (url) {
 
 const main4 = function () {
 
-	const status = callAxios('https://meowfacts.herokuapp.com/');
-	// .then(res => console.log(res));
+	const data = callAxios('https://api.kanye.rest')
+		// .then(res => console.log(res))
+		;
 
-	console.log(status);
+	console.log(data);
 
 };
 
@@ -113,5 +114,5 @@ const main6 = async function () {
 };
 
 
-main2();
+main4();
 console.log("User Thread End");
