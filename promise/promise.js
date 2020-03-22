@@ -65,6 +65,7 @@ const main4 = function () {
 	// Execute (start) the promise
 	promise.then(res => { console.log(res.data); })
 		.catch(error => { console.log(error); });
+
 };
 
 // return from then => becomes "more" thenable
