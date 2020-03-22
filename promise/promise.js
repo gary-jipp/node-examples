@@ -59,10 +59,7 @@ const main3 = function () {
 	console.log(status);
 };
 
-/**
- * https://apilist.fun/api/
- * 
- */
+
 const main4 = function () {
 	axios.get('https://meowfacts.herokuapp.com/')
 		.then(res => {
@@ -108,6 +105,10 @@ const logKanyeResponses = function (responses) {
 	}
 };
 
+/**
+ * https://apilist.fun/api/
+ * 
+ */
 const main6 = function () {
 	const promise1 = axios.get('https://api.kanye.rest/').catch(e => e);
 	const promise2 = axios.get('https://api.kanye.rest/').catch(e => e);
