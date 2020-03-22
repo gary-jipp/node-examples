@@ -6,7 +6,7 @@ console.log("User Thread Start");
 // 	callback(text);
 // };
 
-const longRunningFunction = function (value) {
+const promiseFunction = function (value) {
 	let promise = new Promise((resolve, reject) => {
 		if (value > 0) {
 			setTimeout(() => resolve("yay that worked:" + value), value);
@@ -21,7 +21,7 @@ const longRunningFunction = function (value) {
 const main1 = function () {
 	console.log("calling longRunningFunction()");
 
-	const status = longRunningFunction(220)
+	const status = promiseFunction(220)
 		.then(result => console.log(result))
 		.catch(error => console.log(error))
 		.finally(() => console.log("finished"));
@@ -31,9 +31,9 @@ const main1 = function () {
 
 const main2 = function () {
 	console.log("calling multiple Promises");
-	promise1 = longRunningFunction(1330);
-	promise2 = longRunningFunction(-10);
-	promise3 = longRunningFunction(200);
+	promise1 = promiseFunction(1330);
+	promise2 = promiseFunction(-10);
+	promise3 = promiseFunction(200);
 
 	// All resolve or any fail
 	const status = Promise.all([promise1, promise2, promise3])
@@ -46,9 +46,9 @@ const main2 = function () {
 
 const main3 = function () {
 	console.log("calling multiple Promises");
-	promise1 = longRunningFunction(1330).catch(e => e);
-	promise2 = longRunningFunction(-10).catch(e => e);
-	promise3 = longRunningFunction(200).catch(e => e);
+	promise1 = promiseFunction(1330).catch(e => e);
+	promise2 = promiseFunction(-10).catch(e => e);
+	promise3 = promiseFunction(200).catch(e => e);
 
 	// All resolve or any fail
 	const status = Promise.all([promise1, promise2, promise3])
@@ -59,8 +59,11 @@ const main3 = function () {
 	console.log(status);
 };
 
+/**
+ * https://apilist.fun/api/
+ * 
+ */
 const main4 = function () {
-
 	axios.get('https://api.kanye.rest')
 		.then(res => {
 			console.log(res.data);
@@ -180,5 +183,5 @@ const main10 = async function () {
 };
 
 
-main1();
+main4();
 console.log("User Thread End");
