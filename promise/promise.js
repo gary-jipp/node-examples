@@ -17,7 +17,9 @@ const promiseFunction = function (value) {
 const main1 = function () {
 	console.log("calling promiseFunction()");
 
-	const status = promiseFunction(1200)
+	const promise = promiseFunction(1200);
+
+	const status = promise
 		.then(result => console.log("complete: " + result))
 		.catch(error => console.log("error: " + error))
 		.finally(() => console.log("finally: finished"));
