@@ -24,21 +24,19 @@ const main1 = function () {
 };
 
 
-const promiseWrapper = function () {
-	const promise = myFunction(1200)
-		.then(function (result) { return result; });
+const promiseWrapper = function (value) {
+	const promise = myFunction(value)
+		.catch(result => result);
 	return promise;
 };
 
 const main2 = function () {
-	const status = promiseWrapper()
-		.then(result => result)
-		.then(result => result)
-		.then(result => result)
-		.then(result => result)
-		.then(result => result)
-		.then(result => result)
-		.then(result => console.log(result));
+	const promise = myFunction(-1200).catch(result => result);
+
+
+	promise.then(result => console.log(result));
+
+
 };
 
 
@@ -53,5 +51,5 @@ const main3 = function () {
 		.finally(() => console.log("Finally!"));
 };
 
-main2();
+main3();
 console.log("User Thread End");
