@@ -15,10 +15,10 @@ const promiseFunction = function (value) {
 };
 
 const main1 = function () {
-	console.log("calling promiseFunction()");
-
+	console.log("creating promise");
 	const promise = promiseFunction(1200);
 
+	console.log("calling promiseFunction()");
 	const status = promise
 		.then(result => console.log("complete: " + result))
 		.catch(error => console.log("error: " + error))
@@ -59,14 +59,12 @@ const main3 = function () {
 
 
 const main4 = function () {
-	axios.get('https://meowfacts.herokuapp.com/')
-		.then(res => {
-			console.log(res.data);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
+	// create a promise
+	const promise = axios.get('https://meowfacts.herokuapp.com/');
 
+	// Execute (start) the promise
+	promise.then(res => { console.log(res.data); })
+		.catch(error => { console.log(error); });
 };
 
 // return from then => becomes "more" thenable
