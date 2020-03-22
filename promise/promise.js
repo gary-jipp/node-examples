@@ -2,10 +2,6 @@ const axios = require('axios');
 
 console.log("User Thread Start");
 
-// const doStuff = function (callback, text) {
-// 	callback(text);
-// };
-
 const promiseFunction = function (value) {
 	let promise = new Promise((resolve, reject) => {
 		if (value > 0) {
@@ -19,7 +15,7 @@ const promiseFunction = function (value) {
 };
 
 const main1 = function () {
-	console.log("calling longRunningFunction()");
+	console.log("calling promiseFunction()");
 
 	const status = promiseFunction(220)
 		.then(result => console.log(result))
@@ -183,5 +179,5 @@ const main10 = async function () {
 };
 
 
-main5();
+main1();
 console.log("User Thread End");
