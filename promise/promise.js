@@ -7,7 +7,7 @@ const promiseFunction = function (value) {
 		if (value > 0) {
 			setTimeout(() => resolve("yay that worked:" + value), value);
 		} else {
-			setTimeout(() => reject("error, no value"), 500);
+			setTimeout(() => reject("no value"), 500);
 		}
 	});
 
@@ -17,10 +17,10 @@ const promiseFunction = function (value) {
 const main1 = function () {
 	console.log("calling promiseFunction()");
 
-	const status = promiseFunction(220)
-		.then(result => console.log(result))
-		.catch(error => console.log(error))
-		.finally(() => console.log("finished"));
+	const status = promiseFunction(1200)
+		.then(result => console.log("complete: " + result))
+		.catch(error => console.log("error: " + error))
+		.finally(() => console.log("finally: finished"));
 
 	console.log(status);
 };
