@@ -17,6 +17,8 @@
 
 * Fixing the limitations Promise.all() 
 
+* Useful examples of Promises
+
 
 
 

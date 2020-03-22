@@ -1,14 +1,13 @@
 console.log("User Thread Start");
 'use strict';
 
-// Two parts: anonumous function, assign to named variable
+// Two parts: anonymous function, assign to named variable
 const myFunction = function (value) {
 	return value;
 };
 
 // *** REMEMBER THIS PATTERN  ***
-const myFunction1 =
-	value => value;
+const myFunction1 =	value => value;
 // ******************************
 
 const main = function () {
@@ -69,9 +68,9 @@ const main3 = function () {
 
 	const status = Promise.all([promise1, promise2, promise3])
 		.then(result => console.log(result))
-		.catch(result => console.log(result))
+		.catch(result => console.log(result))		// Never called
 		.finally(() => console.log("Finally!"));
 };
 
-main1();
+main3();
 console.log("User Thread End");
