@@ -52,9 +52,11 @@ const main2 = function () {
 	const status = cleverPromiseWrapper(3000);
 	console.log(status);
 
-
-	const promise = myPromise(-1200).
-		then(result => result);
+	// return from then() or catch() adds a "then" to the chain.
+	const promise = myPromise(-1200)
+	.catch(error => error)
+	.then(result => result)
+	.then(result => result);
 
 	promise.then(result => console.log(result));
 
@@ -72,5 +74,5 @@ const main3 = function () {
 		.finally(() => console.log("Finally!"));
 };
 
-main3();
+main2();
 console.log("User Thread End");
