@@ -71,10 +71,11 @@ const main4 = function () {
 // return from then => becomes "more" thenable
 const callAxios = function (url) {
 
+	// Wait, Maybe I can trick js into waiting to return :) Talk about return from then
 	const promise = axios.get(url)
 		.then(function (res) { return res.data; });		// can't trick js into making async sync :-)
 
-	//return promise;  // Maybe I can trick js into waiting to return :) Talk about return from then
+	//return promise;  
 	// We will use this a bit later
 };
 
@@ -147,7 +148,7 @@ const main8 = function () {
 };
 
 
-// Chaining promises, without nesting;
+// Chaining promises
 const main0 = function () {
 	const promise1 = axios.get('https://api.kanye.rest/').catch(e => e);
 	const promise2 = axios.get('https://api.kanye.rest//').catch(e => e);

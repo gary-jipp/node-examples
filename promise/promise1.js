@@ -1,8 +1,23 @@
 console.log("User Thread Start");
 'use strict';
 
-
+// Two parts: anonumous function, assign to named variable
 const myFunction = function (value) {
+	return value;
+};
+
+// *** REMEMBER THIS PATTERN  ***
+const myFunction1 =
+	value => value;
+// ******************************
+
+const main = function () {
+	console.log("value: " + myFunction(500));
+	console.log("value: " + myFunction1(300));
+};
+//****************************************************** 
+
+const myPromise = function (value) {
 	const promise = new Promise((resolve, reject) => {
 		if (value > 0) {
 			setTimeout(() => { resolve("Yay! That worked: " + value); }, value);
@@ -15,7 +30,8 @@ const myFunction = function (value) {
 };
 
 const main1 = function () {
-	const promise = myFunction(1200);
+	const promise = myPromise(1200);
+
 	promise
 		.then(result => console.log(result))
 		.catch(result => console.log(result))
@@ -24,26 +40,32 @@ const main1 = function () {
 };
 
 
-const promiseWrapper = function (value) {
-	const promise = myFunction(value)
-		.catch(result => result);
-	return promise;
+// can we trick Javascript into making our function synchronous ?? :)
+const cleverPromiseWrapper = function (value) {
+	const promise = myPromise(value)
+		.then(result => result);
+	// return promise;
 };
 
 const main2 = function () {
-	const promise = myFunction(-1200).catch(result => result);
 
+	// Does it work ?
+	const status = cleverPromiseWrapper(3000);
+	console.log(status);
+
+
+	const promise = myPromise(-1200).
+		then(result => result);
 
 	promise.then(result => console.log(result));
-
 
 };
 
 
 const main3 = function () {
-	const promise1 = myFunction(1000).catch(e => e);
-	const promise2 = myFunction(-1200).catch(e => e);
-	const promise3 = myFunction(600).catch(e => e);
+	const promise1 = myPromise(1000).catch(e => e);
+	const promise2 = myPromise(-1200).catch(e => e);
+	const promise3 = myPromise(600).catch(e => e);
 
 	const status = Promise.all([promise1, promise2, promise3])
 		.then(result => console.log(result))
@@ -51,5 +73,5 @@ const main3 = function () {
 		.finally(() => console.log("Finally!"));
 };
 
-main3();
+main1();
 console.log("User Thread End");
