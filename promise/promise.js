@@ -44,7 +44,7 @@ const main2 = function () {
 	console.log(status);
 };
 
-const main2a = function () {
+const main3 = function () {
 	console.log("calling multiple Promises");
 	promise1 = longRunningFunction(1330).catch(e => e);
 	promise2 = longRunningFunction(-10).catch(e => e);
@@ -59,7 +59,7 @@ const main2a = function () {
 	console.log(status);
 };
 
-const main3 = function () {
+const main4 = function () {
 
 	axios.get('https://api.kanye.rest')
 		.then(res => {
@@ -82,7 +82,7 @@ const callAxios = function (url) {
 };
 
 
-const main4 = function () {
+const main5 = function () {
 	const promise = callAxios('https://api.kanye.rest')
 		// .then(res => console.log(res.data))
 		;
@@ -106,7 +106,7 @@ const logKanyeResponses = function (responses) {
 	}
 };
 
-const main5 = function () {
+const main6 = function () {
 	const promise1 = axios.get('https://api.kanye.rest/').catch(e => e);
 	const promise2 = axios.get('https://api.kanye.rest/').catch(e => e);
 	const promise3 = axios.get('https://api.kanye.rest/').catch(e => e);
@@ -118,7 +118,7 @@ const main5 = function () {
 
 
 // Chaining promises - in order; nested
-const main6 = function () {
+const main7 = function () {
 	const promise1 = axios.get('https://api.kanye.rest/').catch(e => e);
 	const promise2 = axios.get('https://api.kanye.rest//').catch(e => e);
 	const promise3 = axios.get('https://api.kanye.rest//').catch(e => e);
@@ -135,7 +135,7 @@ const main6 = function () {
 };
 
 // Chaining promises, without nesting;
-const main7 = function () {
+const main8 = function () {
 	const promise1 = axios.get('https://api.kanye.rest/').catch(e => e);
 	const promise2 = axios.get('https://api.kanye.rest//').catch(e => e);
 	const promise3 = axios.get('https://api.kanye.rest//').catch(e => e);
@@ -146,8 +146,9 @@ const main7 = function () {
 		.then(quote => console.log(quote));
 };
 
+
 // Chaining promises, without nesting;
-const main8 = function () {
+const main0 = function () {
 	const promise1 = axios.get('https://api.kanye.rest/').catch(e => e);
 	const promise2 = axios.get('https://api.kanye.rest//').catch(e => e);
 	const promise3 = axios.get('https://api.kanye.rest//').catch(e => e);
@@ -164,7 +165,7 @@ const main8 = function () {
 };
 
 
-const main9 = async function () {
+const main10 = async function () {
 	// Play with await location
 	try {
 		let res = axios('https://meowfacts.herokuapp.com/');
