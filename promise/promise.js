@@ -1,4 +1,5 @@
 const axios = require('axios');
+"use strict";
 
 console.log("User Thread Start");
 

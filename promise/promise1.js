@@ -1,5 +1,5 @@
 console.log("User Thread Start");
-'use strict';
+"use strict";
 
 // Two parts: anonymous function, assign to named variable
 const myFunction = function (value) {
