@@ -64,7 +64,7 @@ const main3 = function () {
  * 
  */
 const main4 = function () {
-	axios.get('https://api.kanye.rest')
+	axios.get('https://meowfacts.herokuapp.com/')
 		.then(res => {
 			console.log(res.data);
 		})
@@ -80,16 +80,15 @@ const callAxios = function (url) {
 	const promise = axios.get(url)
 		.then(function (res) { return res.data; });		// can't trick js into making async sync :-)
 
-	// return promise;  // Maybe I can trick js into waiting to return :) Talk about return from then
+	//return promise;  // Maybe I can trick js into waiting to return :) Talk about return from then
 	// We will use this a bit later
 };
 
-
 const main5 = function () {
-	const promise = callAxios('https://api.kanye.rest')
-		// .then(res => console.log(res.data))
+	const status = callAxios('https://meowfacts.herokuapp.com/')
+		//.then(data => console.log(data.data[0]))
 		;
-	console.log(promise);
+	console.log(status);
 };
 
 const logKanyeResponse = function (res) {
@@ -183,5 +182,5 @@ const main10 = async function () {
 };
 
 
-main4();
+main5();
 console.log("User Thread End");
