@@ -1,5 +1,6 @@
+const axios = require('axios');
+
 console.log("User Thread Start");
-"use strict";
 
 // Two parts: anonymous function, assign to named variable
 const myFunction = function (value) {
@@ -74,5 +75,17 @@ const main3 = function () {
 		.finally(() => console.log("Finally!"));
 };
 
-main2();
+
+const main4 = function () {
+	// create a promise
+	const promise = axios.get('https://meowfacts.herokuapp.com/');
+
+	// Execute (start) the promise
+	promise.then(res => { console.log(res.data); })
+		.catch(error => { console.log(error); });
+
+};
+
+
+main4();
 console.log("User Thread End");
