@@ -8,7 +8,7 @@ const myFunction = function (value) {
 };
 
 // *** REMEMBER THIS PATTERN  ***
-const myFunction1 =	value => value;
+const myFunction1 = value => value;
 // ******************************
 
 const main = function () {
@@ -18,6 +18,7 @@ const main = function () {
 //****************************************************** 
 
 const myPromise = function (value) {
+
 	const promise = new Promise((resolve, reject) => {
 		if (value > 0) {
 			setTimeout(() => { resolve("Yay! That worked: " + value); }, value);
@@ -55,9 +56,9 @@ const main2 = function () {
 
 	// return from then() or catch() adds a "then" to the chain.
 	const promise = myPromise(-1200)
-	.catch(error => error)
-	.then(result => result)
-	.then(result => result);
+		.catch(error => error)
+		.then(result => result)
+		.then(result => result);
 
 	promise.then(result => console.log(result));
 
@@ -81,7 +82,7 @@ const main4 = function () {
 	const promise = axios.get('https://meowfacts.herokuapp.com/');
 
 	// Execute (start) the promise
-	promise.then(res => { console.log(res.data); })
+	promise.then(res => { console.log(res.data.data.pop()); })
 		.catch(error => { console.log(error); });
 
 };
