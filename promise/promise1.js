@@ -2,20 +2,24 @@ const axios = require('axios');
 
 console.log("User Thread Start");
 
-// Two parts: anonymous function, assign to named variable
+// Two parts: anonymous function, assign that to a named variable
 const myFunction = function (value) {
 	return value;
 };
 
+const myFunction1 = (value) => { return value; };
+
 // *** REMEMBER THIS PATTERN  ***
-const myFunction1 = value => value;
+// const myFunction1 = (value => value);
 // ******************************
 
 const main = function () {
 	console.log("value: " + myFunction(500));
-	console.log("value: " + myFunction1(300));
+	console.log("value: " + myFunction1(500));
 };
 //****************************************************** 
+
+main();
 
 const myPromise = function (value) {
 
@@ -39,6 +43,44 @@ const main1 = function () {
 		.finally(() => console.log("Finally!"));
 	console.log(promise);
 };
+
+// Why would we want to create our own promises?
+const { Pool } = require("pg");
+const pool = new Pool({
+	host: "localhost",
+	user: "postgres",
+	database: "scheduler",
+	port: "5432"
+});
+
+const callpg = function () {
+	pool.query("SELECT * from days", (err, res) => {
+		console.log(res.rows);
+		pool.end();
+	});
+};
+
+// Can turn callback functions into promises
+const query = function (sql) {
+	const promise = new Promise((resolve, reject) => {
+
+		pool.query(sql, (err, res) => {
+			err ? reject(err) : resolve(res.rows);
+			pool.end();
+		});
+	});
+	return promise;
+};
+
+const main11 = function () {
+
+	query("SELECT * from days")
+		.then(result => console.log(result))
+		.catch(err => console.log(err.code));
+
+};
+// main11();
+
 
 
 // can we trick Javascript into making our function synchronous ?? :)
@@ -65,8 +107,9 @@ const main2 = function () {
 };
 
 
+
 const main3 = function () {
-	const promise1 = myPromise(1000).catch(e => e);
+	const promise1 = myPromise(1000).catch(e => e);  //write  without catch first
 	const promise2 = myPromise(-1200).catch(e => e);
 	const promise3 = myPromise(600).catch(e => e);
 
@@ -78,15 +121,11 @@ const main3 = function () {
 
 
 const main4 = function () {
-	// create a promise
 	const promise = axios.get('https://meowfacts.herokuapp.com/');
-
-	// Execute (start) the promise
 	promise.then(res => { console.log(res.data.data.pop()); })
 		.catch(error => { console.log(error); });
 
 };
 
 
-main4();
 console.log("User Thread End");

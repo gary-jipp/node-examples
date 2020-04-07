@@ -4,8 +4,9 @@
 	* "normal" global functions
 	* (fat) "arrow" functions - why we care
 
-* Create a Promise
-	* why you would want to do that
+* Create a Promise 
+	* why would you ever want to do that?
+	* real world example
 
 * Using a Promise
 	* then
@@ -16,8 +17,12 @@
 	* thenable
 
 * Fixing the limitations Promise.all() 
+ 	(with some promising magic)
 
-* Useful examples of Promises
+* More Useful examples of Promises
+
+* If we have time
+	* syncronous / asyncronous
 
 
 
