@@ -9,10 +9,10 @@ const obj1 = {
 
 // Create new object with new text
 const obj2 = { ...obj1, text: "New text" };
-console.log("obj2 =" + util.inspect(obj2));
+console.log("obj2 = " + util.inspect(obj2));
 
 // Shorthand object creation
 const item1 = "item1";
 const item2 = "item2";
 const obj3 = { item1, item2 };
-console.log("obj3 =" + util.inspect(obj3));
+console.log("obj3 = " + util.inspect(obj3));
